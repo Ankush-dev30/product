@@ -75,18 +75,45 @@ WSGI_APPLICATION = 'product_Dashboard.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'product_dashboard',   # your database name
-        'USER': 'root',                # your MySQL username
-        'PASSWORD': 'root',    # your MySQL password
-        'HOST': 'localhost',           # or 127.0.0.1
-        'PORT': '3306',                # MySQL default port
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'product_dashboard',   # your database name
+#         'USER': 'root',                # your MySQL username
+#         'PASSWORD': 'root',    # your MySQL password
+#         'HOST': 'localhost',           # or 127.0.0.1
+#         'PORT': '3306',                # MySQL default port
+#     }
+# }
+
+# -----------------------------------------------------------------------
+
+# THIS IS WHAT I MAKING FOR TO CHECK THE CODE 
+
+import os
+
+if os.getenv("GITHUB_ACTIONS"):  # When running in GitHub Actions
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:  # Your local MySQL setup
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'product_dashboard',
+            'USER': 'root',
+            'PASSWORD': 'root',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
 
 
+
+# -----------------------------------------------------------------------
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
