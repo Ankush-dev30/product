@@ -8,9 +8,11 @@ colorama==0.4.6
 comm==0.2.3
 debugpy==1.8.16
 decorator==5.2.1
+distlib==0.4.0
 Django==5.2.5
 executing==2.2.0
 fanstatic==1.6
+filelock==3.20.3
 Flask==3.1.2
 fpdf==1.7.2
 gunicorn==23.0.0
@@ -59,6 +61,8 @@ traitlets==5.14.3
 typing_extensions==4.14.1
 tzdata==2023.3
 urllib3==2.6.3
+virtualenv==20.36.1
+waitress==3.0.2
 wcwidth==0.2.13
 WebOb==1.8.9
 Werkzeug==3.1.5
